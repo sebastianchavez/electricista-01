@@ -10,13 +10,17 @@ const BUSINESS = {
   tagline: "Soluciones eléctricas profesionales a tu alcance",
   description:
     "Empresa líder en servicios eléctricos residenciales, comerciales e industriales con más de 15 años de experiencia.",
-  phone: "+54 11 5555-1234",
-  phoneRaw: "+541155551234",
-  whatsapp: "+54 9 11 5555-1234",
-  whatsappRaw: "5491155551234",
-  email: "contacto@voltajeseguro.com",
-  address: "Av. Corrientes 1234, C1043 CABA, Buenos Aires",
-  addressShort: "Av. Corrientes 1234, CABA",
+  country: "Chile",
+  locale: "es-CL",
+  currency: "CLP",
+  // Datos de contacto de ejemplo: reemplazar antes de publicar.
+  phone: "+56 9 5555 1234",
+  phoneRaw: "+56955551234",
+  whatsapp: "+56 9 5555 1234",
+  whatsappRaw: "56955551234",
+  email: "contacto@voltajeseguro.cl",
+  address: "Av. Providencia 1234, Providencia, Santiago, Chile",
+  addressShort: "Av. Providencia 1234, Santiago",
   schedule: {
     weekdays: "Lunes a Viernes · 8:00 a 20:00",
     saturday: "Sábados · 9:00 a 14:00",
@@ -29,7 +33,7 @@ const BUSINESS = {
     youtube: "https://youtube.com/@voltajeseguro",
   },
   mapEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016887889473!2d-58.38159248477!3d-34.60373898045943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacf4d84c8b1%3A0x9b1e9b9f9b1e9b9f!2sAv.%20Corrientes%201234%2C%20C1043%20CABA!5e0!3m2!1ses-419!2sar!4v1700000000000",
+    "https://maps.google.com/maps?q=Av.%20Providencia%201234%2C%20Santiago%2C%20Chile&output=embed",
 };
 
 const STATS = [
@@ -52,7 +56,7 @@ const SERVICES = [
       "Puesta a tierra",
       "Certificación final",
     ],
-    priceFrom: 25000,
+    priceFrom: 120000,
     category: "Instalación",
   },
   {
@@ -67,7 +71,7 @@ const SERVICES = [
       "Repuestos originales",
       "Garantía escrita",
     ],
-    priceFrom: 8500,
+    priceFrom: 35000,
     category: "Reparación",
   },
   {
@@ -82,7 +86,7 @@ const SERVICES = [
       "Diferenciales 30mA",
       "Etiquetado profesional",
     ],
-    priceFrom: 15000,
+    priceFrom: 85000,
     category: "Instalación",
   },
   {
@@ -97,7 +101,7 @@ const SERVICES = [
       "Sensores de movimiento",
       "Domótica básica",
     ],
-    priceFrom: 6500,
+    priceFrom: 20000,
     category: "Iluminación",
   },
   {
@@ -112,7 +116,7 @@ const SERVICES = [
       "Fibra óptica",
       "Certificación de puntos",
     ],
-    priceFrom: 32000,
+    priceFrom: 95000,
     category: "Comercial",
   },
   {
@@ -127,7 +131,7 @@ const SERVICES = [
       "Tableros de potencia",
       "Asesoramiento técnico",
     ],
-    priceFrom: 85000,
+    priceFrom: 350000,
     category: "Industrial",
   },
   {
@@ -142,7 +146,7 @@ const SERVICES = [
       "Toma de tierra",
       "Línea de drenaje eléctrico",
     ],
-    priceFrom: 9500,
+    priceFrom: 30000,
     category: "Instalación",
   },
   {
@@ -157,7 +161,7 @@ const SERVICES = [
       "Sin cargo de visita",
       "Diagnóstico profesional",
     ],
-    priceFrom: 7500,
+    priceFrom: 45000,
     category: "Reparación",
   },
 ];
@@ -289,7 +293,7 @@ const PRICING = [
     id: "basico",
     name: "Plan Básico",
     tagline: "Para hogares pequeños",
-    price: 9900,
+    price: 25000,
     period: "visita + presupuesto",
     featured: false,
     description: "Ideal para arreglos puntuales y mantenimiento básico.",
@@ -306,7 +310,7 @@ const PRICING = [
     id: "profesional",
     name: "Plan Profesional",
     tagline: "El más elegido",
-    price: 24900,
+    price: 120000,
     period: "por proyecto",
     featured: true,
     description: "Para remodelaciones e instalaciones completas.",
@@ -337,7 +341,7 @@ const PRICING = [
       "Mantenimiento mensual",
       "Atención 24/7 prioritaria",
       "Cumplimiento ISO 9001",
-      "Facturación A/M",
+      "Boleta y factura electrónica",
     ],
     notIncluded: [],
   },
@@ -352,7 +356,7 @@ const COURSES = [
     duration: "4 semanas",
     hours: "16 horas totales",
     classes: 8,
-    price: 18500,
+    price: 89000,
     level: "Inicial",
     requirements: "Ninguno",
     topics: [
@@ -376,7 +380,7 @@ const COURSES = [
     duration: "6 semanas",
     hours: "24 horas totales",
     classes: 12,
-    price: 32000,
+    price: 149000,
     level: "Intermedio",
     requirements: "Haber cursado el básico o experiencia previa",
     topics: [
@@ -400,7 +404,7 @@ const COURSES = [
     duration: "8 semanas",
     hours: "40 horas totales",
     classes: 16,
-    price: 58000,
+    price: 249000,
     level: "Avanzado",
     requirements: "Conocimientos intermedios de electricidad",
     topics: [
@@ -424,7 +428,7 @@ const COURSES = [
     duration: "2 semanas",
     hours: "8 horas totales",
     classes: 4,
-    price: 12000,
+    price: 59000,
     level: "Todos los niveles",
     requirements: "Ninguno",
     topics: [
@@ -443,7 +447,7 @@ const COURSES = [
 const TESTIMONIALS = [
   {
     name: "María González",
-    role: "Propietaria, Belgrano",
+    role: "Propietaria, Ñuñoa",
     avatar: "https://i.pravatar.cc/150?img=49",
     rating: 5,
     comment:
@@ -467,7 +471,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Diego Martínez",
-    role: "Dueño de casa, Palermo",
+    role: "Dueño de casa, Providencia",
     avatar: "https://i.pravatar.cc/150?img=14",
     rating: 5,
     comment:
@@ -497,9 +501,9 @@ const FAQ = [
       "Sí, aceptamos efectivo, transferencia bancaria, todas las tarjetas de débito y crédito. Para empresas también facturamos A o M.",
   },
   {
-    question: "¿Trabajan en toda la Ciudad de Buenos Aires?",
+    question: "¿Trabajan en toda la ciudad de Santiago?",
     answer:
-      "Sí, cubrimos toda la CABA y GBA. Para zonas más alejadas consultá sin compromiso.",
+      "Sí, cubrimos toda la Santiago y la Región Metropolitana. Para zonas más alejadas consultá sin compromiso.",
   },
 ];
 

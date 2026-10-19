@@ -164,3 +164,7 @@ Las imágenes del template vienen de Unsplash como placeholders. Reemplazalas co
 ## Licencia
 
 Template de uso libre. Imágenes de Unsplash sujetas a su propia licencia.
+
+## Edición Chile
+
+Los precios son referenciales, en pesos chilenos (CLP); no representan una conversión de moneda ni una cotización comercial. El teléfono +56 9 5555 1234, el correo y la dirección de Santiago son datos de ejemplo: reemplazarlos por los datos reales antes de publicar, tanto en los HTML como en assets/js/data.js.
