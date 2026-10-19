@@ -14,6 +14,8 @@
   "use strict";
 
   const D = window.VS_DATA || {};
+  const clp = new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 });
+  const formatPrice = (value) => `${clp.format(value)} CLP`;
 
   /* =====================================================
      Navbar: sombra al hacer scroll
@@ -38,6 +40,22 @@
     const menu = document.getElementById("mobile-menu");
     if (!toggle || !menu) return;
 
+    const closeMenu = () => {
+      menu.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.querySelector("svg")?.classList.remove("rotate-180");
+    };
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.classList.contains("open")) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+    window.matchMedia("(min-width: 1280px)").addEventListener("change", (event) => {
+      if (event.matches) closeMenu();
+    });
+
     toggle.addEventListener("click", () => {
       menu.classList.toggle("open");
       const expanded = menu.classList.contains("open");
@@ -48,8 +66,7 @@
     // Cerrar al hacer click en un link
     menu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        menu.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
+        closeMenu();
       });
     });
   }
@@ -91,9 +108,9 @@
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       const value = Math.floor(eased * target);
-      el.textContent = value.toLocaleString("es-AR") + suffix;
+      el.textContent = value.toLocaleString("es-CL") + suffix;
       if (progress < 1) requestAnimationFrame(tick);
-      else el.textContent = target.toLocaleString("es-AR") + suffix;
+      else el.textContent = target.toLocaleString("es-CL") + suffix;
     };
     requestAnimationFrame(tick);
   }
@@ -243,7 +260,7 @@
         <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
           <div>
             <div class="text-xs text-neutral-500">Desde</div>
-            <div class="text-yellow-400 font-bold text-lg">$${s.priceFrom.toLocaleString("es-AR")}</div>
+            <div class="text-yellow-400 font-bold text-lg">${formatPrice(s.priceFrom)}</div>
           </div>
           <a href="contacto.html" class="text-yellow-400 text-sm font-semibold hover:underline">Cotizar →</a>
         </div>
@@ -349,7 +366,7 @@
           <div class="mb-2">
             ${
               p.price
-                ? `<span class="text-5xl font-extrabold text-white">$${p.price.toLocaleString("es-AR")}</span>`
+                ? `<span class="text-4xl xl:text-5xl font-extrabold text-white">${formatPrice(p.price)}</span>`
                 : `<span class="text-3xl font-extrabold text-white">A medida</span>`
             }
           </div>
@@ -393,7 +410,7 @@
         <div class="bg-gradient-to-br from-yellow-400 to-yellow-500 text-neutral-900 p-6">
           <div class="flex items-center justify-between mb-2">
             <span class="text-xs font-bold uppercase tracking-wider bg-neutral-900/20 px-2 py-1 rounded">${c.level}</span>
-            <span class="text-2xl font-extrabold">$${c.price.toLocaleString("es-AR")}</span>
+            <span class="text-xl font-extrabold">${formatPrice(c.price)}</span>
           </div>
           <h3 class="text-2xl font-bold mt-2">${c.title}</h3>
         </div>

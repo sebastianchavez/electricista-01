@@ -18,13 +18,35 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
+
+/* Let grid columns shrink around long headings, prices and form controls. */
+.grid > *, .flex > * {
+  min-width: 0;
+}
+
+h1, h2, h3 {
+  overflow-wrap: anywhere;
+}
+
+.mobile-menu:not(.open) {
+  visibility: hidden;
+}
+
+.mobile-menu.open {
+  visibility: visible;
+  max-height: min(600px, calc(100dvh - 4rem));
+  overflow-y: auto;
+}
+
 
 /* =====================================================
    Animaciones de entrada (IntersectionObserver)
@@ -125,7 +147,7 @@ body {
   transition: max-height 0.4s ease;
 }
 .mobile-menu.open {
-  max-height: 600px;
+  max-height: min(600px, calc(100dvh - 4rem));
 }
 
 /* =====================================================
@@ -581,5 +603,44 @@ details summary::-webkit-details-marker { display: none; }
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .reveal-left, .reveal-right {
+    transform: translateY(24px);
+  }
+
+  .heading-xl {
+    font-size: clamp(1.875rem, 8vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .hero-pattern > .grid {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    gap: 2.5rem;
+  }
+
+  .hero-pattern .btn-primary, .hero-pattern .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pricing-featured {
+    transform: none;
+  }
+
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
   }
 }
